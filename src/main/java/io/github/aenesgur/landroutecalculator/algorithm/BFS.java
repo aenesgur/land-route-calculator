@@ -1,6 +1,7 @@
 package io.github.aenesgur.landroutecalculator.algorithm;
 
 import io.github.aenesgur.landroutecalculator.client.Country;
+import io.github.aenesgur.landroutecalculator.exception.RouteNotFoundException;
 import lombok.AllArgsConstructor;
 
 import java.util.*;
@@ -48,7 +49,7 @@ public class BFS implements Graph {
         }
 
         if (!check) {
-            //
+            throw new RouteNotFoundException("Route could not be created");
         }
 
         List<Country> landRoute = new ArrayList<>();

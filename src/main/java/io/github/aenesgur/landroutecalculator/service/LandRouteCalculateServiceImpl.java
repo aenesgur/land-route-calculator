@@ -4,6 +4,7 @@ import io.github.aenesgur.landroutecalculator.algorithm.BFS;
 import io.github.aenesgur.landroutecalculator.algorithm.Graph;
 import io.github.aenesgur.landroutecalculator.client.CountryApiClient;
 import io.github.aenesgur.landroutecalculator.client.Country;
+import io.github.aenesgur.landroutecalculator.exception.RouteNotFoundException;
 import io.github.aenesgur.landroutecalculator.model.RouteResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,20 @@ public class LandRouteCalculateServiceImpl implements LandRouteCalculateService{
     }
 
     private void validate(Country currentCountry, Country targetCountry,String currentCode, String targetCode){
-
+        if(currentCode.equals(targetCode)){
+            throw new RouteNotFoundException("Current and target country codes are equal");
+        }
+        if (currentCountry == null){
+            throw new RouteNotFoundException("Current country could not found in JSON");
+        }
+        if (targetCountry == null){
+            throw new RouteNotFoundException("Target country could not found in JSON");
+        }
+        if (currentCountry.getBorders().isEmpty()) {
+            throw new RouteNotFoundException("Current country's borders are empty");
+        }
+        if (targetCountry.getBorders().isEmpty()) {
+            throw new RouteNotFoundException("Target country's borders are empty");
+        }
     }
 }
