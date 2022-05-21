@@ -1,0 +1,4 @@
+api:
+  country:
+    name: country-api-client
+    url: https://raw.githubusercontent.com/mledoze/countries
