@@ -3,10 +3,11 @@ package io.github.aenesgur.landroutecalculator.algorithm;
 import io.github.aenesgur.landroutecalculator.client.Country;
 import io.github.aenesgur.landroutecalculator.exception.RouteNotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
+@Slf4j
 @AllArgsConstructor
 public class BFS implements Graph {
     private final Map<String, Country> countries;
@@ -33,6 +34,10 @@ public class BFS implements Graph {
             }
             for (String borderCountry : currentCountry.getBorders()) {
                 var neighbourCountry = countries.get(borderCountry);
+                if (neighbourCountry == null){
+                    log.info("neighbourCountry could not found in JSON");
+                    continue;
+                }
                 if (!visitedCountryMap.containsKey(neighbourCountry)) {
                     queue.add(neighbourCountry);
                     visitedCountryMap.put(neighbourCountry, true);
