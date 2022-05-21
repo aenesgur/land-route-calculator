@@ -6,7 +6,7 @@ In this application, the Breadth First Search algorithm, which is one of the Gra
 
 > Breadth First Search is the algorithm to be used when you want to find the shortest path in an undirected, unweighted graph. The claim of BFS is that when a node is discovered for the first time during migration, it gives the shortest path of that distance from the source.
 
-Unit tests added for BFS alforithm in test folder
+Unit tests added for BFS algorithm in test folder
 
 
 #### Used Technology
