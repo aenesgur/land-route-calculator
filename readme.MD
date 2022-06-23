@@ -1,7 +1,3 @@
-# BCF Backend Developer Test
-
-Your task is to create a simple Spring Boot service, that is able to calculate any possible land route from one country to another. The objective is to take a list of country data in JSON format and calculate the route by utilizing individual countries border information.
-
 In this application, the Breadth First Search algorithm, which is one of the Graph algorithms, was preferred and this algorithm was integrated into the code.
 
 > Breadth First Search is the algorithm to be used when you want to find the shortest path in an undirected, unweighted graph. The claim of BFS is that when a node is discovered for the first time during migration, it gives the shortest path of that distance from the source.
